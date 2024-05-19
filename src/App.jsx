@@ -1,12 +1,17 @@
 
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import Navbar from './components/Navbar'
 
 function App() {
 
 
   return (
     <>
-      <h1>APP</h1>
+    <Navbar/>
+    {/* WE USE OUTLET TO RENDER THE CHILDREN */}
+    <Outlet/>
+ 
     </>
   )
 }
