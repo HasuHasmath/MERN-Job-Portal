@@ -19,7 +19,7 @@ const Location = ({ handleChange }) => {
         </label>
         <InputField
           handleChange={handleChange}
-          value="landon"
+          value="london"
           title="London"
           name="test"
         />
