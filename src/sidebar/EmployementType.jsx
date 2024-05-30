@@ -19,6 +19,12 @@ const EmployementType = ({handleChange}) => {
         </label>
         <InputField
           handleChange={handleChange}
+          value="temporary"
+          title="Temporary"
+          name="test2"
+        />
+        <InputField
+          handleChange={handleChange}
           value="full-time"
           title="Full-time"
           name="test2"
@@ -27,12 +33,6 @@ const EmployementType = ({handleChange}) => {
           handleChange={handleChange}
           value="part-time"
           title="Part-time"
-          name="test2"
-        />
-        <InputField
-          handleChange={handleChange}
-          value="temporary"
-          title="Temporary"
           name="test2"
         />
       </div>
