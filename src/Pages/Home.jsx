@@ -74,7 +74,7 @@ const Home = () => {
     // Further filter jobs by selected category (location, salary type, employment type, etc.)
     if (selected) {
       filteredJobs = filteredJobs.filter(
-        ({ jobLocation, maxPrice, salaryType, employmentType }) => {
+        ({ jobLocation, maxPrice, experienceLevel,salaryType, employmentType, postingDate }) => {
           return (
             jobLocation.toLowerCase() === selected.toLowerCase() ||
             parseInt(maxPrice) <= parseInt(selected) ||
