@@ -76,10 +76,12 @@ const Home = () => {
       filteredJobs = filteredJobs.filter(
         ({ jobLocation, maxPrice, experienceLevel,salaryType, employmentType, postingDate }) => {
           return (
-            jobLocation.toLowerCase() === selected.toLowerCase() ||
+             jobLocation.toLowerCase() === selected.toLowerCase() ||
             parseInt(maxPrice) <= parseInt(selected) ||
+            postingDate >= selected ||
             salaryType.toLowerCase() === selected.toLowerCase() ||
             employmentType.toLowerCase() === selected.toLowerCase()
+           
           );
         }
       );
