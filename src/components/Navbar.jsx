@@ -9,9 +9,10 @@ const Navbar = () => {
   };
   const navItems = [
     { path: "/ ", title: "Start a search" },
-    { path: "/my-jobs ", title: "My Jobs" },
-    { path: "/salary", title: "Salary Estimate " },
-    { path: "/post-job ", title: "Post A Job" },
+    { path: "my-jobs", title: "My Jobs" },
+    { path: "salary", title: "Salary Estimate " },
+    { path: "job", title: "Post a Job" },
+    { path: "about", title: "About" },
   ];
   return (
     <header className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
@@ -95,9 +96,7 @@ const Navbar = () => {
             </li>
           ))}
           <li className="text-white py-1 ">
-            <Link to="/login">
-              Log In
-            </Link>
+            <Link to="/login">Log In</Link>
           </li>
         </ul>
       </div>
