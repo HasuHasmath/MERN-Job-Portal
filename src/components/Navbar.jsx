@@ -32,9 +32,12 @@ const Navbar = () => {
               fill="#3575E2"
               fillOpacity="0.4"
             />
+
             <circle cx="16.9857" cy="17.4857" r="12.0143" fill="#3575E2" />
           </svg>{" "}
+
           <span> JobPortal</span>
+          <img src="../../public/job2.jpeg" width="40" height="40" />
         </a>
 
         {/* NAV ITEMS FOR LARGE DEVICES */}
