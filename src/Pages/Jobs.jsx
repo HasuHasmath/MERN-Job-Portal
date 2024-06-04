@@ -1,6 +1,6 @@
-import React from 'react'
 
-const Jobs = ({result}) => {
+const Jobs = ({result}) => { 
+  
   return (
     <>
       <div>

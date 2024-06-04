@@ -10,12 +10,13 @@ const Home = () => {
   const [jobs, setJobs] = useState([]); // Jobs data
   const [isLoading, setIsLoading] = useState(true); // Loading state
   const [currentPage, setCurrentPage] = useState(1); // Current page for pagination
-  const itemsPerPage = 6; // Number of items per page
+  const itemsPerPage = 8; // Number of items per page
 
   // Fetch jobs data from the JSON file when the component mounts
   useEffect(() => {
     setIsLoading(true);
-    fetch("jobs.json")
+    fetch("http://localhost:3000/all-jobs")
+      // fetch("jobs.json")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);
@@ -29,6 +30,11 @@ const Home = () => {
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
+
+  // filter jobs by title
+  // const filteredItems = jobs.filter(
+  //   (job) => job.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1
+  // )
 
   // Handle changes in category selection (e.g., radio buttons)
   const handleChange = (event) => {
@@ -67,23 +73,31 @@ const Home = () => {
 
     // Filter jobs by search query (job title)
     if (query) {
-      filteredJobs = jobs.filter((job) =>
-        job.jobTitle.toLowerCase().includes(query.toLowerCase())
+      filteredJobs = jobs.filter(
+        (job) =>
+          job.jobTitle &&
+          job.jobTitle.toLowerCase().includes(query.toLowerCase())
       );
     }
 
     // Further filter jobs by selected category (location, salary type, employment type, etc.)
     if (selected) {
       filteredJobs = filteredJobs.filter(
-        ({ jobLocation, maxPrice, experienceLevel,salaryType, employmentType, postingDate }) => {
+        ({
+          jobLocation,
+          maxPrice,
+          experienceLevel,
+          salaryType,
+          employmentType,
+          postingDate,
+        }) => {
           return (
-             jobLocation.toLowerCase() === selected.toLowerCase() ||
+            jobLocation.toLowerCase() === selected.toLowerCase() ||
             parseInt(maxPrice) <= parseInt(selected) ||
             experienceLevel.toLowerCase() === selected.toLowerCase() ||
             postingDate >= selected ||
             salaryType.toLowerCase() === selected.toLowerCase() ||
             employmentType.toLowerCase() === selected.toLowerCase()
-           
           );
         }
       );
@@ -98,9 +112,6 @@ const Home = () => {
     // Return the filtered jobs wrapped in Card components
     return filteredJobs.map((data, i) => <Card key={i} data={data} />);
   };
-
-
-
 
   // Filter the items using the filteredData function
   const filteredItems = filteredData(jobs, selectedCategory, query);
@@ -138,13 +149,22 @@ const Home = () => {
                 Page {currentPage} of
                 {Math.ceil(filteredItems.length / itemsPerPage)}
               </span>
-              <button onClick={nextPage} disabled={currentPage === Math.ceil(filteredItems.length / itemsPerPage)}>Next</button>
+              <button
+                onClick={nextPage}
+                disabled={
+                  currentPage === Math.ceil(filteredItems.length / itemsPerPage)
+                }
+              >
+                Next
+              </button>
             </div>
           )}
         </div>
 
         {/* Right sidebar */}
-        <div className="bg-white p-4 rounded "><NewsLetter/></div>
+        <div className="bg-white p-4 rounded ">
+          <NewsLetter />
+        </div>
       </div>
     </div>
   );
