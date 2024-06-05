@@ -17,12 +17,14 @@ const Location = ({ handleChange }) => {
           />
           <span className="checkmark"></span>ALL
         </label>
+
         <InputField
           handleChange={handleChange}
-          value="london"
-          title="London"
+          value="landon"
+          title="Landon"
           name="test"
         />
+
         <InputField
           handleChange={handleChange}
           value="seattle"
