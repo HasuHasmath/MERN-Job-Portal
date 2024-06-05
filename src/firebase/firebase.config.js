@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCifP1Wh7x6HjVWv_skefJz2JXzkNm5L-o",
+  apiKey: "",
   authDomain: "job-portal-demo-1be82.firebaseapp.com",
   projectId: "job-portal-demo-1be82",
   storageBucket: "job-portal-demo-1be82.appspot.com",
-  messagingSenderId: "846539116166",
-  appId: "1:846539116166:web:252f7c1874cb7280ed8b07",
+  messagingSenderId: "",
+  appId: "",
 };
 
 // Initialize Firebase
